@@ -1,0 +1,29 @@
+
+module.exports = {
+  entry:'./app/index.js',
+  output:{
+    path:'./build',
+    filename:'bundle.js'
+  },
+  module:{
+      loaders:[
+          {
+              test:/\.js$/,
+              loader:'babel?presets[]=es2015&presets[]=stage-0&presets[]=react',
+              exclude:/node_modules/
+          },
+          {
+              test:/\.css$/,
+              loader:'style!css'
+          },
+          {
+              test:/\.(svg|ttf|woff|woff2|eot)$/,
+              loader:'url'
+          },
+          {
+              test:/\.(png|jpg|gif|bmp)$/,
+              loader:'url'
+          }
+      ]
+  }
+}
